@@ -6,11 +6,16 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { importProvidersFrom } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { environment } from './environments/environment';
 
 export function createTranslateLoader(http: HttpClient, route = "./assets/i18n/home-"): TranslateHttpLoader {
   return new TranslateHttpLoader(http, route, '.json');
+}
+
+if (environment.production) {
+  enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {

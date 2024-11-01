@@ -22,14 +22,16 @@ export class HeroService {
    * @returns Listado de heroes
    */
   async getHeroes(): Promise<Character[]> {
-    const { base_url, characters, apikey } = environment.marvel;
+    const { base_url, characters, apikey, hash } = environment.marvel;
     const url = `${base_url}${characters}`;
 
     const options: HttpOptions = {
       url,
       params: {
         "apikey": apikey,
-        "limit": this.heroLimit
+        "limit": this.heroLimit,
+        "hash": hash,
+        "ts": "1"
       }
     }
 
