@@ -1,20 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      {{'HEADER' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  @defer(when !isServiceLoading) {
+    <ion-list class="ion-padding list__heroes"
+      [ngClass]="{'list__heroes--columns': heroes.length}">
+      @for (hero of heroes; track hero.id) {
+
+        <ion-card (click)="showHeroDetail(hero)"
+          class="hero__card"
+          [style.background-image]="'url('+hero.thumbnail.path+'.'+hero.thumbnail.extension+')'">
+          <ion-label class="ion-margin-bottom ion-text-center hero--text">{{hero.name}}</ion-label>
+        </ion-card>
+      }
+      @empty {
+        @if (!isServiceLoading && !error) {
+          <ion-item lines="none" class="hero--no-data">
+            <ion-label class="ion-text-center hero--text">{{'NOT_FOUND' | translate}}</ion-label>
+          </ion-item>
+        }
+        @else {
+          <ion-item lines="none" class="hero--no-data">
+            <ion-label class="ion-text-center hero--text">{{'HERO_ERRROR' | translate}}</ion-label>
+          </ion-item>
+        }
+      }
+    </ion-list>
+  }
+  @placeholder {
+    <ion-list class="ion-padding list__heroes list__heroes--columns">
+      @for (i of skeletonItems; let idx = $index; track idx) {
+        <ion-card class="hero__card">
+          <ion-skeleton-text class="ion-no-margin" animated style="height: 5rem" />
+        </ion-card>
+      }
+    </ion-list>
+  }
+
 </ion-content>

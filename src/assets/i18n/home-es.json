@@ -1,0 +1,5 @@
+{
+    "HEADER": "Listado de Superheroes",
+    "HERO_ERRROR": "Ocurrio un error al cargar el listado de heroes",
+    "NOT_FOUND": "No se encontraron heroes"
+}

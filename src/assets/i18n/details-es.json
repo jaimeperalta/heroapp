@@ -1,0 +1,5 @@
+{
+    "COMMITS_QUANTITY": "Cantidad de Comics disponibles: {{quantity}}",
+    "SERIES_QUANTITY": "Cantidad de Series disponibles: {{quantity}}",
+    "STORIES_QUANTITY": "Cantidad de Stories disponibles: {{quantity}}"
+}
