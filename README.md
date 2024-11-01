@@ -75,11 +75,12 @@ Para instalar el proyecto, sigue estos pasos:
 heroapp/
 ├── src/
 │   ├── app/
-│   │   ├── components/    # Componentes independientes
-│   │   ├── services/      # Servicios de la aplicación
-│   │   ├── pages/         # Páginas de la aplicación
+│   │   ├── details/    # Componentes vista detalle
+│   │   ├── home/       # Vista principal
+│   │   ├── interfaces/         # Interfaces de la aplicación
+│   │   ├── services/         # Servicios de la aplicación
 │   │   ├── app.module.ts   # Módulo principal de la aplicación
-│   │   └── main.ts        # Archivo principal
+│   └── main.ts            # Archivo principal
 │   ├── assets/            # Archivos estáticos como imágenes y estilos
 │   ├── environments/       # Configuraciones de entorno
 │   └── index.html         # Archivo HTML principal
